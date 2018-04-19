@@ -34,6 +34,7 @@ sequelize.sync({ force: true })
   .then(() => {
     db.ad_full.create({
       "uuid": 'littlepug1',
+      "appid": "pingtai",
       "isDelete": false,
       "picture": "https://b-ssl.duitang.com/uploads/item/201411/18/20141118235250_PSc5A.jpeg",
       "needShow": true,
@@ -45,6 +46,7 @@ sequelize.sync({ force: true })
     })
     db.ad_full.create({
       "uuid": 'yuanxinadtest2',
+      "appid": "pingtai",
       "isDelete": false,
       "picture": "https://mobiletest.yuanxin2015.com/FileDownService/down/file?parment=AD/2018/3/AD-20180327.jpg",
       "needShow": true,
@@ -57,7 +59,7 @@ sequelize.sync({ force: true })
   })
 
 
-// db.sequelize = sequelize;
-// db.Sequelize = Sequelize;
+db.sequelize = sequelize;
+db.Sequelize = Sequelize;
 
 module.exports = db;

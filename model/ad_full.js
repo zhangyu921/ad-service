@@ -3,8 +3,8 @@
 module.exports = (sequelize, DataTypes) => {
 
   let ad_full = sequelize.define('ad_full', {
-    isDelete: DataTypes.BOOLEAN,
     uuid: DataTypes.STRING,
+    appid: DataTypes.STRING,
     needShow: DataTypes.BOOLEAN,
     immediately: DataTypes.BOOLEAN,
     startTime: DataTypes.DATE,
@@ -12,6 +12,7 @@ module.exports = (sequelize, DataTypes) => {
     duration: DataTypes.INTEGER,
     picture: DataTypes.STRING,
     ext: DataTypes.TEXT,
+    isDelete: DataTypes.BOOLEAN,
   })
 
   return ad_full;
