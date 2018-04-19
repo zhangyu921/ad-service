@@ -30,33 +30,35 @@ Object.keys(db).forEach(modelName => {
   }
 });
 
-sequelize.sync({ force: true })
-  .then(() => {
-    db.ad_full.create({
-      "uuid": 'littlepug1',
-      "appid": "pingtai",
-      "isDelete": false,
-      "picture": "https://b-ssl.duitang.com/uploads/item/201411/18/20141118235250_PSc5A.jpeg",
-      "needShow": true,
-      "immediately": false,
-      "startTime": new Date('2018-03-03'),
-      "endTime": new Date('2019-01-01'),
-      "duration": 4,
-      "ext": 'jpeg',
+if (env === 'development') {
+  sequelize.sync({ force: true })
+    .then(() => {
+      db.ad_full.create({
+        "uuid": 'littlepug1',
+        "appid": "pingtai",
+        "isDelete": false,
+        "picture": "https://b-ssl.duitang.com/uploads/item/201411/18/20141118235250_PSc5A.jpeg",
+        "needShow": true,
+        "immediately": false,
+        "startTime": new Date('2018-03-03'),
+        "endTime": new Date('2019-01-01'),
+        "duration": 4,
+        "ext": 'jpeg',
+      })
+      db.ad_full.create({
+        "uuid": 'yuanxinadtest2',
+        "appid": "pingtai",
+        "isDelete": false,
+        "picture": "https://mobiletest.yuanxin2015.com/FileDownService/down/file?parment=AD/2018/3/AD-20180327.jpg",
+        "needShow": true,
+        "immediately": true,
+        "startTime": new Date('2017-03-03'),
+        "endTime": new Date('2018-01-01'),
+        "duration": 10,
+        "ext": 'jpg',
+      })
     })
-    db.ad_full.create({
-      "uuid": 'yuanxinadtest2',
-      "appid": "pingtai",
-      "isDelete": false,
-      "picture": "https://mobiletest.yuanxin2015.com/FileDownService/down/file?parment=AD/2018/3/AD-20180327.jpg",
-      "needShow": true,
-      "immediately": true,
-      "startTime": new Date('2017-03-03'),
-      "endTime": new Date('2018-01-01'),
-      "duration": 10,
-      "ext": 'jpg',
-    })
-  })
+}
 
 
 db.sequelize = sequelize;
